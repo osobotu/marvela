@@ -25,3 +25,12 @@ Character _$CharacterFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
       fieldKeyMap: const {'modifiedAt': 'modified'},
     );
+
+Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'description': instance.description,
+      'modified': instance.modifiedAt,
+      'resourceURI': instance.resourceURI,
+      'thumbnail': instance.thumbnail,
+    };

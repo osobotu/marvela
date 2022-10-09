@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:marvel_api/env/env.dart';
 import 'package:marvel_api/marvel_api.dart';
-import 'package:marvel_api/src/hash.dart';
 
 // exception thrown when fetchCharacters fails
 class FetchCharactersRequestFailure implements Exception {}
