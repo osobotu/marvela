@@ -114,20 +114,23 @@ void main() {
               when(() => response.statusCode).thenReturn(200);
               when(() => response.body).thenReturn(
                 '''
-{
+{ 
+  "data": {
     "results": [
      { 
       "id": 1011176,
       "name": "Ajak",
       "description": "",
       "modified": "1969-12-31T19:00:00-0500",
-      "thumbnail": {
-                    "path": "http://i.annihil.us/u/prod/marvel/i/mg/2/80/4c002f35c5215",
-                    "extension": "jpg"
-                    },
       "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011176",
+      "thumbnail": {
+         "path": "http://i.annihil.us/u/prod/marvel/i/mg/2/80/4c002f35c5215",
+          "extension": "jpg"
+      }
       }
     ]
+  }
+
 }
 ''',
               );
@@ -135,12 +138,28 @@ void main() {
                   .thenAnswer((_) async => response);
 
               final actual = await marvelApiClient.fetchCharacters();
+
               expect(
                 actual,
                 isA<List<Character>>().having(
                   (l) => l[0],
                   'first character',
-                  isA<Character>().having((c) => c.name, 'name', 'Ajak'),
+                  isA<Character>()
+                      .having((c) => c.name, 'name', 'Ajak')
+                      .having((c) => c.id, 'id', 1011176)
+                      .having((c) => c.description, 'description', '')
+                      .having((c) => c.modifiedAt, 'modifiedAt',
+                          "1969-12-31T19:00:00-0500")
+                      .having((c) => c.resourceURI, 'resourceURI',
+                          "http://gateway.marvel.com/v1/public/characters/1011176")
+                      .having(
+                        (c) => c.thumbnail,
+                        'thumbnail',
+                        isA<Thumbnail>()
+                            .having((t) => t.path, 'path',
+                                "http://i.annihil.us/u/prod/marvel/i/mg/2/80/4c002f35c5215")
+                            .having((t) => t.extension, 'extension', "jpg"),
+                      ),
                 ),
               );
             },

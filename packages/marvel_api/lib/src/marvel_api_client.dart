@@ -39,9 +39,7 @@ class MarvelApiClient {
       throw FetchCharactersRequestFailure();
     }
 
-    final characterDataBody =
-        jsonDecode(charactersListResponse.body) as Map<String, dynamic>;
-
+    final characterDataBody = json.decode(charactersListResponse.body) as Map;
     if (!characterDataBody.containsKey('data')) {
       throw NoCharactersFound();
     }
