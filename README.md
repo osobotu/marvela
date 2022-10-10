@@ -4,7 +4,7 @@ Personal project using [Marvel Comics API](https://developer.marvel.com/).
 
 ## Introduction
 
-### Requirements
+### Features
 
 - Show a list of characters fetched from the Marvel Comics API
 - Search for a character
@@ -21,7 +21,7 @@ The project was implemented using bloc architecture.
 - Business Logic: manages the state of each feature (themes, character, favorite characters etc)
 - Presentation Layer: displays characters, favorite characters and collects input from the user (settings page, search page, favorites page etc)
 
-## Build Requirements
+## Installation
 
 To run this project;
 
