@@ -4,7 +4,7 @@ Personal project using [Marvel Comics API](https://developer.marvel.com/).
 
 ## Introduction
 
-### Requirements
+### Features
 
 - Show a list of characters fetched from the Marvel Comics API
 - Search for a character
@@ -16,12 +16,12 @@ Personal project using [Marvel Comics API](https://developer.marvel.com/).
 
 The project was implemented using bloc architecture.
 
-- Data Layer: consists of the `marvel_api_client` for retrieving raw data from the Marvel API.
+- Data Layer: consists of the `marvel_api_client` for retrieving raw data from the [Marvel Comics API](https://developer.marvel.com/).
 - Repository Layer: abstracts the data layer and exposes the domain models to be consumed by the application. (`marvel_repository`)
 - Business Logic: manages the state of each feature (themes, character, favorite characters etc)
 - Presentation Layer: displays characters, favorite characters and collects input from the user (settings page, search page, favorites page etc)
 
-## Build Requirements
+## Installation
 
 To run this project;
 
