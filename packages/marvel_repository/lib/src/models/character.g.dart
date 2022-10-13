@@ -1,19 +1,34 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: implicit_dynamic_parameter
+
 part of 'character.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Character _$CharacterFromJson(Map<String, dynamic> json) => Character(
-      id: json['id'] as int,
-      name: json['name'] as String,
-      description: json['description'] as String,
-      modifiedAt: json['modified'] as String,
-      resourceURI: json['resourceURI'] as String,
-      thumbnail: Thumbnail.fromJson(json['thumbnail'] as Map<String, dynamic>),
-      isFavorite: json['isFavorite'] as bool? ?? false,
+Character _$CharacterFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Character',
+      json,
+      ($checkedConvert) {
+        final val = Character(
+          id: $checkedConvert('id', (v) => v as int),
+          name: $checkedConvert('name', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String),
+          modifiedAt: $checkedConvert('modified', (v) => v as String),
+          resourceURI: $checkedConvert('resourceURI', (v) => v as String),
+          thumbnail: $checkedConvert('thumbnail',
+              (v) => Thumbnail.fromJson(v as Map<String, dynamic>)),
+          isFavorite:
+              $checkedConvert('is_favorite', (v) => v as bool? ?? false),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'modifiedAt': 'modified',
+        'isFavorite': 'is_favorite'
+      },
     );
 
 Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
@@ -22,6 +37,6 @@ Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
       'description': instance.description,
       'modified': instance.modifiedAt,
       'resourceURI': instance.resourceURI,
-      'thumbnail': instance.thumbnail,
-      'isFavorite': instance.isFavorite,
+      'thumbnail': instance.thumbnail.toJson(),
+      'is_favorite': instance.isFavorite,
     };

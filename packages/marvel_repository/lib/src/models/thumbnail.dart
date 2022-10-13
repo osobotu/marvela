@@ -12,6 +12,7 @@ class Thumbnail extends Equatable {
   factory Thumbnail.fromJson(Map<String, dynamic> json) =>
       _$ThumbnailFromJson(json);
 
+  Map<String, dynamic> toJson() => _$ThumbnailToJson(this);
   @override
   List<Object?> get props => [path, extension];
 }
