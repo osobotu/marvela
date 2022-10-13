@@ -30,6 +30,8 @@ class Character extends Equatable {
   factory Character.fromJson(Map<String, dynamic> json) =>
       _$CharacterFromJson(json);
 
+  Map<String, dynamic> toJson() => _$CharacterToJson(this);
+
   @override
   List<Object?> get props =>
       [id, name, description, modifiedAt, resourceURI, thumbnail, isFavorite];
