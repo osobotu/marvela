@@ -37,6 +37,8 @@ void main() {
           final ts = DateTime.now().second.toString();
 
           final hash = HashGenerator().generateMD5Hash(ts);
+          const offset = 0;
+          const charactersLimit = '40';
           test(
             'makes correct http request',
             () async {
@@ -55,9 +57,11 @@ void main() {
                     'gateway.marvel.com:443',
                     'v1/public/characters',
                     {
+                      'limit': charactersLimit,
                       'apikey': Env.apiKey,
                       'hash': hash,
                       'ts': ts,
+                      'offset': offset.toString(),
                     },
                   ),
                 ),

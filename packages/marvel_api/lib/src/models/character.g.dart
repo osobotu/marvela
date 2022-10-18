@@ -32,5 +32,5 @@ Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
       'description': instance.description,
       'modified': instance.modifiedAt,
       'resourceURI': instance.resourceURI,
-      'thumbnail': instance.thumbnail,
+      'thumbnail': instance.thumbnail.toJson(),
     };

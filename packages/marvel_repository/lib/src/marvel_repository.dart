@@ -7,9 +7,11 @@ class MarvelRepository {
 
   final MarvelApiClient _marvelApiClient;
 
-  Future<List<Character>> fetchCharacters() async {
+  Future<List<Character>> fetchCharacters([int offset = 0]) async {
     final characters = <Character>[];
-    final charactersFromApiClient = await _marvelApiClient.fetchCharacters();
+    final charactersFromApiClient =
+        await _marvelApiClient.fetchCharacters(offset);
+    print('Fetch characters in repository called');
     for (var character in charactersFromApiClient) {
       characters.add(
         Character(

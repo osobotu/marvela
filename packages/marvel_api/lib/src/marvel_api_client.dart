@@ -8,6 +8,8 @@ class FetchCharactersRequestFailure implements Exception {}
 
 class NoCharactersFound implements Exception {}
 
+const _charactersLimit = 50;
+
 class MarvelApiClient {
   MarvelApiClient({http.Client? httpClient})
       : _httpClient = httpClient ?? http.Client();
@@ -18,19 +20,23 @@ class MarvelApiClient {
 
   // Fetcher list of [Characters] from `/v1/public/characters`
   // ''' Query should include apiKey, ts (timestamp) and hash (md5 hash) '''
-  Future<List<Character>> fetchCharacters() async {
+  Future<List<Character>> fetchCharacters([int offset = 0]) async {
     final ts = DateTime.now().second.toString();
 
     final hash = HashGenerator().generateMD5Hash(ts);
+
     final charactersListRequest = Uri.https(
       _baseMarvelUrl,
       'v1/public/characters',
       {
+        'limit': '40',
         'apikey': Env.apiKey,
         'hash': hash,
         'ts': ts,
+        'offset': offset.toString(),
       },
     );
+
     final charactersListResponse = await _httpClient.get(charactersListRequest);
 
     if (charactersListResponse.statusCode != 200) {
