@@ -6,7 +6,7 @@ part 'env.g.dart';
 abstract class Env {
   @EnviedField(varName: 'PUBLIC_KEY', obfuscate: true)
   static final apiKey = _Env.apiKey;
-  @EnviedField(varName: 'PUBLIC_KEY', obfuscate: true)
+  @EnviedField(varName: 'PRIVATE_KEY', obfuscate: true)
   static final privateKey = _Env.privateKey;
 
   @EnviedField(varName: 'TEST_PUBLIC_KEY')
