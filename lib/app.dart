@@ -26,9 +26,11 @@ class MarvelaAppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.light,
       theme: ThemeData(
-        primaryColor: Colors.purpleAccent,
         textTheme: GoogleFonts.amaranthTextTheme(),
+        primarySwatch: Colors.orange,
       ),
       home: CharactersPage(),
     );

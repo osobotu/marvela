@@ -2,6 +2,7 @@ import 'package:Marvela/characters/characters.dart';
 import 'package:Marvela/characters/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:marvel_repository/marvel_repository.dart';
 
 class CharactersView extends StatelessWidget {
@@ -12,6 +13,12 @@ class CharactersView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Marvela'),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.search),
+          )
+        ],
       ),
       body: CharactersList(),
     );
@@ -44,18 +51,21 @@ class _CharactersListState extends State<CharactersList> {
             child: CircularProgressIndicator(),
           );
         case CharacterStatus.success:
-          return ListView.builder(
-              itemCount: state.hasReachedMax
-                  ? state.characters.length
-                  : state.characters.length + 1,
-              controller: _scrollController,
-              itemBuilder: (BuildContext context, int index) {
-                return index >= state.characters.length
-                    ? BottomLoader()
-                    : CharacterItem(
-                        item: state.characters[index],
-                      );
-              });
+          return Scrollbar(
+            controller: _scrollController,
+            child: ListView.builder(
+                itemCount: state.hasReachedMax
+                    ? state.characters.length
+                    : state.characters.length + 1,
+                controller: _scrollController,
+                itemBuilder: (BuildContext context, int index) {
+                  return index >= state.characters.length
+                      ? BottomLoader()
+                      : CharacterItem(
+                          item: state.characters[index],
+                        );
+                }),
+          );
         case CharacterStatus.failure:
           return Center(
             child: Text('Failed to fetch characters'),
@@ -100,7 +110,11 @@ class CharacterItem extends StatelessWidget {
             NetworkImage('${item.thumbnail.path}.${item.thumbnail.extension}'),
       ),
       title: Text(item.name),
-      subtitle: Text(item.modifiedAt),
+      subtitle: Text(
+        DateFormat('dd-MM-yyyy').format(
+          DateTime.parse(item.modifiedAt),
+        ),
+      ),
       dense: true,
     );
   }

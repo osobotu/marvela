@@ -6,11 +6,11 @@ Personal project using [Marvel Comics API](https://developer.marvel.com/).
 
 ### Features
 
-- Show a list of characters fetched from the Marvel Comics API
-- Search for a character
-- Show a details page of a character
-- Toggle between dark and light theme
-- Save favorites characters to a local database
+- [x] Show a list of characters fetched from the Marvel Comics API
+- [ ] Search for a character
+- [ ] Show a details page of a character
+- [ ] Toggle between dark and light theme
+- [ ] Save favorites characters to a local database
 
 ## Implementation
 
