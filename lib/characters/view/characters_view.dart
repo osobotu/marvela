@@ -1,8 +1,9 @@
 import 'package:Marvela/characters/characters.dart';
+import 'package:Marvela/characters/view/details_view.dart';
 import 'package:Marvela/characters/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
+
 import 'package:intl/intl.dart';
 import 'package:marvel_repository/marvel_repository.dart';
 
@@ -54,10 +55,14 @@ class _CharactersListState extends State<CharactersList> {
                       : CharacterItem(
                           item: state.characters[index],
                           onCharacterTapped: () {
-                            // context.go(
-                            //   '/details',
-                            //   extra: state.characters[index].toJson(),
-                            // );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailsView(
+                                  character: state.characters[index],
+                                ),
+                              ),
+                            );
                           },
                         );
                 }),

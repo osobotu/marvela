@@ -8,7 +8,7 @@ part 'theme_state.dart';
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   ThemeBloc()
       : super(ThemeState(
-          themeMode: ThemeMode.dark,
+          themeMode: ThemeMode.light,
         )) {
     on<ThemeChanged>(_onThemeChanged);
   }
