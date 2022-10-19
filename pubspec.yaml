@@ -19,6 +19,7 @@ dependencies:
     path: packages/marvel_repository
   bloc_concurrency: ^0.2.0
   stream_transform: ^2.0.1
+  intl: ^0.17.0
 
 dev_dependencies:
   bloc_test: ^9.1.0

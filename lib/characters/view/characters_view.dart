@@ -1,7 +1,10 @@
 import 'package:Marvela/characters/characters.dart';
+import 'package:Marvela/characters/view/details_view.dart';
 import 'package:Marvela/characters/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:intl/intl.dart';
 import 'package:marvel_repository/marvel_repository.dart';
 
 class CharactersView extends StatelessWidget {
@@ -9,12 +12,7 @@ class CharactersView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Marvela'),
-      ),
-      body: CharactersList(),
-    );
+    return CharactersList();
   }
 }
 
@@ -44,18 +42,31 @@ class _CharactersListState extends State<CharactersList> {
             child: CircularProgressIndicator(),
           );
         case CharacterStatus.success:
-          return ListView.builder(
-              itemCount: state.hasReachedMax
-                  ? state.characters.length
-                  : state.characters.length + 1,
-              controller: _scrollController,
-              itemBuilder: (BuildContext context, int index) {
-                return index >= state.characters.length
-                    ? BottomLoader()
-                    : CharacterItem(
-                        item: state.characters[index],
-                      );
-              });
+          return Scrollbar(
+            controller: _scrollController,
+            child: ListView.builder(
+                itemCount: state.hasReachedMax
+                    ? state.characters.length
+                    : state.characters.length + 1,
+                controller: _scrollController,
+                itemBuilder: (BuildContext context, int index) {
+                  return index >= state.characters.length
+                      ? BottomLoader()
+                      : CharacterItem(
+                          item: state.characters[index],
+                          onCharacterTapped: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailsView(
+                                  character: state.characters[index],
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                }),
+          );
         case CharacterStatus.failure:
           return Center(
             child: Text('Failed to fetch characters'),
@@ -88,19 +99,35 @@ class CharacterItem extends StatelessWidget {
   const CharacterItem({
     Key? key,
     required this.item,
+    this.onCharacterTapped,
   }) : super(key: key);
 
   final Character item;
+  final void Function()? onCharacterTapped;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: onCharacterTapped,
       leading: CircleAvatar(
         backgroundImage:
             NetworkImage('${item.thumbnail.path}.${item.thumbnail.extension}'),
       ),
       title: Text(item.name),
-      subtitle: Text(item.modifiedAt),
+      subtitle: Text(
+        DateFormat('dd-MM-yyyy').format(
+          DateTime.parse(item.modifiedAt),
+        ),
+      ),
+      // trailing: IconButton(
+      //   onPressed: () {
+      //     print('Favorite button tapped');
+      //   },
+      //   icon: Icon(
+      //     item.isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
+      //     color: Colors.amberAccent,
+      //   ),
+      // ),
       dense: true,
     );
   }
