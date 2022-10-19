@@ -36,7 +36,19 @@ PRIVATE_KEY=<Your Actual Private Key>
 ```
 
 - Generate models using `flutter pub run build_runner build --delete-conflicting-outputs`
+- Run the project using `flutter pub run`
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Screenshots
+
+![Simulator Screen Shot - iPhone 13 mini - 2022-10-19 at 10 05 22 Medium](https://user-images.githubusercontent.com/72420125/196648773-04af8711-4c61-4a0b-bd3d-4e899eda6ad5.jpeg)
+![Simulator Screen Shot - iPhone 13 mini - 2022-10-19 at 10 06 34 Medium](https://user-images.githubusercontent.com/72420125/196650048-1811dee6-c4bf-4fdb-a6da-fb2f4ba6f2fd.jpeg)
+
+![Simulator Screen Shot - iPhone 13 mini - 2022-10-19 at 10 05 47 Medium](https://user-images.githubusercontent.com/72420125/196650103-e7088d26-f106-4157-b6b7-3ada82141068.jpeg)
+![Simulator Screen Shot - iPhone 13 mini - 2022-10-19 at 10 05 58 Medium](https://user-images.githubusercontent.com/72420125/196650446-02b7ff3b-47c2-4fc6-950a-8e5634e7d09b.jpeg)
+
+![Simulator Screen Shot - iPhone 13 mini - 2022-10-19 at 10 05 26 Medium](https://user-images.githubusercontent.com/72420125/196650499-de5b5695-698c-4a3e-b5a6-31bfea11c895.jpeg)
+![Simulator Screen Shot - iPhone 13 mini - 2022-10-19 at 10 05 31 Medium](https://user-images.githubusercontent.com/72420125/196650512-43af8bff-5b9d-4739-954d-38bed952f710.jpeg)
