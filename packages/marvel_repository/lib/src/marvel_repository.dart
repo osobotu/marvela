@@ -11,7 +11,6 @@ class MarvelRepository {
     final characters = <Character>[];
     final charactersFromApiClient =
         await _marvelApiClient.fetchCharacters(offset);
-    print('Fetch characters in repository called');
     for (var character in charactersFromApiClient) {
       characters.add(
         Character(
