@@ -36,8 +36,8 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
         ));
       }
 
-      final characters =
-          await marvelRepository.fetchCharacters(state.characters.length);
+      final characters = await marvelRepository.fetchCharacters(
+          offset: state.characters.length);
 
       characters.isEmpty
           ? emit(state.copyWith(hasReachedMax: true))

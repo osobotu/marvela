@@ -20,21 +20,27 @@ class MarvelApiClient {
 
   // Fetcher list of [Characters] from `/v1/public/characters`
   // ''' Query should include apiKey, ts (timestamp) and hash (md5 hash) '''
-  Future<List<Character>> fetchCharacters([int offset = 0]) async {
+  Future<List<Character>> fetchCharacters(
+      {int offset = 0, String nameStartsWith = ''}) async {
     final ts = DateTime.now().second.toString();
 
     final hash = HashGenerator().generateMD5Hash(ts);
+    final queryParameters = {
+      'limit': '40',
+      'apikey': Env.apiKey,
+      'hash': hash,
+      'ts': ts,
+      'offset': offset.toString(),
+    };
+
+    if (nameStartsWith.isNotEmpty) {
+      queryParameters.addAll({'nameStartsWith': nameStartsWith});
+    }
 
     final charactersListRequest = Uri.https(
       _baseMarvelUrl,
       'v1/public/characters',
-      {
-        'limit': '40',
-        'apikey': Env.apiKey,
-        'hash': hash,
-        'ts': ts,
-        'offset': offset.toString(),
-      },
+      queryParameters,
     );
 
     final charactersListResponse = await _httpClient.get(charactersListRequest);

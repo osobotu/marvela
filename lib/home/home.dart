@@ -1,4 +1,5 @@
 import 'package:Marvela/characters/characters.dart';
+import 'package:Marvela/search/view/views.dart';
 
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,14 @@ class _HomeState extends State<Home> {
         title: Text('Marvela'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SearchPage(),
+                ),
+              );
+            },
             icon: Icon(Icons.search),
           )
         ],
