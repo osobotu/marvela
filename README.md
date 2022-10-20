@@ -52,3 +52,15 @@ samples, guidance on mobile development, and a full API reference.
 
 ![Simulator Screen Shot - iPhone 13 mini - 2022-10-19 at 10 05 26 Medium](https://user-images.githubusercontent.com/72420125/196650499-de5b5695-698c-4a3e-b5a6-31bfea11c895.jpeg)
 ![Simulator Screen Shot - iPhone 13 mini - 2022-10-19 at 10 05 31 Medium](https://user-images.githubusercontent.com/72420125/196650512-43af8bff-5b9d-4739-954d-38bed952f710.jpeg)
+
+![Simulator Screen Shot - iPhone 13 mini - 2022-10-20 at 21 26 10 Medium](https://user-images.githubusercontent.com/72420125/197052271-ed3ebce7-deef-40b2-aa9b-63c07430af12.jpeg)
+![Simulator Screen Shot - iPhone 13 mini - 2022-10-20 at 21 25 44 Medium](https://user-images.githubusercontent.com/72420125/197052501-5d557149-112d-4b88-a2ca-7e8268269e8e.jpeg)
+
+![Simulator Screen Shot - iPhone 13 mini - 2022-10-20 at 21 25 56 Medium](https://user-images.githubusercontent.com/72420125/197054728-5e5d63e9-c95b-4345-980f-3b99b2d6d6c2.jpeg)
+![Simulator Screen Shot - iPhone 13 mini - 2022-10-20 at 21 26 15 Medium](https://user-images.githubusercontent.com/72420125/197054739-800e362f-0436-4787-bb6c-83737df40ae8.jpeg)
+
+![Simulator Screen Shot - iPhone 13 mini - 2022-10-20 at 21 26 20 Medium](https://user-images.githubusercontent.com/72420125/197054757-1fa21955-b004-4918-8b6e-c56b61689fa9.jpeg)
+![Simulator Screen Shot - iPhone 13 mini - 2022-10-20 at 21 26 00 Medium](https://user-images.githubusercontent.com/72420125/197054766-d03c41b4-bca2-4620-be6c-0d86fd60650f.jpeg)
+
+
+
