@@ -10,7 +10,7 @@ Personal project using [Marvel Comics API](https://developer.marvel.com/).
 - [x] Search for a character
 - [x] Show a details page of a character
 - [x] Toggle between dark and light theme
-- [ ] Save favorites characters to a local database
+- [x] Save favorite characters to a local database
 
 ## Implementation
 
@@ -61,6 +61,3 @@ samples, guidance on mobile development, and a full API reference.
 
 ![Simulator Screen Shot - iPhone 13 mini - 2022-10-20 at 21 26 20 Medium](https://user-images.githubusercontent.com/72420125/197054757-1fa21955-b004-4918-8b6e-c56b61689fa9.jpeg)
 ![Simulator Screen Shot - iPhone 13 mini - 2022-10-20 at 21 26 00 Medium](https://user-images.githubusercontent.com/72420125/197054766-d03c41b4-bca2-4620-be6c-0d86fd60650f.jpeg)
-
-
-

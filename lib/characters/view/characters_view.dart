@@ -1,5 +1,4 @@
 import 'package:Marvela/characters/characters.dart';
-import 'package:Marvela/characters/view/details_view.dart';
 import 'package:Marvela/characters/widgets/widgets.dart';
 import 'package:Marvela/core/core_widgets/core_widgets.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +31,8 @@ class _CharactersListState extends State<CharactersList> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    print(size.width);
     return BlocBuilder<CharacterBloc, CharacterState>(
         builder: (context, state) {
       switch (state.status) {
@@ -42,28 +43,53 @@ class _CharactersListState extends State<CharactersList> {
         case CharacterStatus.success:
           return Scrollbar(
             controller: _scrollController,
-            child: ListView.builder(
-                itemCount: state.hasReachedMax
-                    ? state.characters.length
-                    : state.characters.length + 1,
-                controller: _scrollController,
-                itemBuilder: (BuildContext context, int index) {
-                  return index >= state.characters.length
-                      ? BottomLoader()
-                      : CharacterItem(
-                          item: state.characters[index],
-                          onCharacterTapped: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => DetailsView(
-                                  character: state.characters[index],
-                                ),
-                              ),
+            child: size.width < 865
+                ? ListView.builder(
+                    itemCount: state.hasReachedMax
+                        ? state.characters.length
+                        : state.characters.length + 1,
+                    controller: _scrollController,
+                    itemBuilder: (BuildContext context, int index) {
+                      return index >= state.characters.length
+                          ? BottomLoader()
+                          : CharacterItem(
+                              item: state.characters[index],
+                              onCharacterTapped: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailsView(
+                                      character: state.characters[index],
+                                    ),
+                                  ),
+                                );
+                              },
                             );
-                          },
-                        );
-                }),
+                    })
+                : GridView.builder(
+                    controller: _scrollController,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 5),
+                    itemCount: state.hasReachedMax
+                        ? state.characters.length
+                        : state.characters.length + 1,
+                    itemBuilder: (context, index) {
+                      return index >= state.characters.length
+                          ? BottomLoader()
+                          : CharacterItem(
+                              item: state.characters[index],
+                              onCharacterTapped: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailsView(
+                                      character: state.characters[index],
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                    }),
           );
         case CharacterStatus.failure:
           return Center(

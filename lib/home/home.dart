@@ -1,4 +1,6 @@
 import 'package:Marvela/characters/characters.dart';
+import 'package:Marvela/favorites_characters/favorite_characters.dart';
+
 import 'package:Marvela/search/view/views.dart';
 
 import 'package:flutter/material.dart';
@@ -35,35 +37,30 @@ class _HomeState extends State<Home> {
       ),
       body: IndexedStack(
         index: currentIndex,
-        children: [
-          CharactersPage(),
-          Center(
-            child: Text('Favorites'),
-          ),
-          SettingsPage()
-        ],
+        children: [CharactersPage(), FavoritesPage(), SettingsPage()],
       ),
       bottomNavigationBar: BottomNavigationBar(
-          onTap: (index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-          currentIndex: currentIndex,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Characters',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Favorites',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
-            ),
-          ]),
+        onTap: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
+        currentIndex: currentIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Characters',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorites',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
+      ),
     );
   }
 }
