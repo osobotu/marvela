@@ -1,5 +1,5 @@
-name: local_storage_favorites_api
-description: Implementation of the favorites api using a local storage.
+name: favorites_repository
+description: A dart package that manages the favorite characters domain.
 version: 0.0.1
 homepage:
 publish_to: none
@@ -11,12 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   favorites_api:
     path: ../favorites_api
-  shared_preferences: ^2.0.15
-  meta: ^1.8.0
-  rxdart: ^0.27.5
 
 dev_dependencies:
   flutter_test:

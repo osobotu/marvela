@@ -1,4 +1,7 @@
+import 'package:Marvela/favorites_characters/bloc/favorite_characters_bloc.dart';
+import 'package:favorites_repository/favorites_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_repository/marvel_repository.dart';
 
 class DetailsView extends StatelessWidget {
@@ -40,13 +43,35 @@ class DetailsView extends StatelessWidget {
           ),
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   tooltip: 'Add to favorites',
-      //   onPressed: () {},
-      //   child: Icon(
-      //     Icons.add,
-      //   ),
-      // ),
+      floatingActionButton: BlocProvider(
+        create: (context) => FavoriteCharactersBloc(
+            favoritesRepository: context.read<FavoritesRepository>()),
+        child: Builder(
+          builder: (context) {
+            return FloatingActionButton(
+              tooltip: 'Add to favorites',
+              onPressed: () {
+                context.read<FavoriteCharactersBloc>().add(
+                      FavoriteCharacterAdded(
+                        FavoriteCharacter(
+                          createdAt: DateTime.now().toString(),
+                          description: character.description,
+                          id: character.id,
+                          name: character.name,
+                          resourceURI: character.resourceURI,
+                          isFavorite: true,
+                          thumbnail: FavoriteThumbnail(
+                              path: character.thumbnail.path,
+                              extension: character.thumbnail.extension),
+                        ),
+                      ),
+                    );
+              },
+              child: Icon(Icons.add),
+            );
+          },
+        ),
+      ),
     );
   }
 }

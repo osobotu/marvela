@@ -17,6 +17,10 @@ dependencies:
   path_provider: ^2.0.8
   marvel_repository:
     path: packages/marvel_repository
+  favorites_repository:
+    path: packages/favorites_repository
+  local_storage_favorites_api:
+    path: packages/local_storage_favorites_api
   bloc_concurrency: ^0.2.0
   stream_transform: ^2.0.1
   intl: ^0.17.0
