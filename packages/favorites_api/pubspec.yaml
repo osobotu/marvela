@@ -1,0 +1,26 @@
+name: favorites_api
+description: Dart package for managing the favorite character domain.
+version: 0.0.1
+publish_to: none
+homepage:
+
+environment:
+  sdk: ">=2.18.2 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  marvel_repository:
+    path: ../marvel_repository
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:

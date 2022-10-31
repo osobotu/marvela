@@ -40,6 +40,13 @@ class DetailsView extends StatelessWidget {
           ),
         ),
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   tooltip: 'Add to favorites',
+      //   onPressed: () {},
+      //   child: Icon(
+      //     Icons.add,
+      //   ),
+      // ),
     );
   }
 }
