@@ -13,8 +13,6 @@ dependencies:
   flutter:
     sdk: flutter
   json_annotation: ^4.6.0
-  marvel_repository:
-    path: ../marvel_repository
 
 dev_dependencies:
   flutter_test:

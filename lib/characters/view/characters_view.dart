@@ -1,6 +1,7 @@
 import 'package:Marvela/characters/characters.dart';
 import 'package:Marvela/characters/widgets/widgets.dart';
 import 'package:Marvela/core/core_widgets/core_widgets.dart';
+import 'package:Marvela/favorites_characters/view/parallax.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,7 +33,7 @@ class _CharactersListState extends State<CharactersList> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    print(size.width);
+
     return BlocBuilder<CharacterBloc, CharacterState>(
         builder: (context, state) {
       switch (state.status) {
@@ -52,9 +53,8 @@ class _CharactersListState extends State<CharactersList> {
                     itemBuilder: (BuildContext context, int index) {
                       return index >= state.characters.length
                           ? BottomLoader()
-                          : CharacterItem(
-                              item: state.characters[index],
-                              onCharacterTapped: () {
+                          : GestureDetector(
+                              onTap: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -64,6 +64,11 @@ class _CharactersListState extends State<CharactersList> {
                                   ),
                                 );
                               },
+                              child: CharacterListItem(
+                                  dateCreated: "",
+                                  imageUrl:
+                                      '${state.characters[index].thumbnail.path}.${state.characters[index].thumbnail.extension}',
+                                  name: state.characters[index].name),
                             );
                     })
                 : GridView.builder(
