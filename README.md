@@ -44,6 +44,9 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Screenshots
 
+![Simulator Screen Shot - iPhone 14 - 2023-06-29 at 12 27 47 Medium](https://github.com/osobotu/marvela/assets/72420125/abe8ccae-8aca-4655-a740-9b77da5f7670)
+![Simulator Screen Shot - iPhone 14 - 2023-06-29 at 12 27 37 Medium](https://github.com/osobotu/marvela/assets/72420125/33142c00-013a-4ade-aa1a-400a2de19abe)
+
 ![Simulator Screen Shot - iPhone 13 mini - 2022-10-19 at 10 05 22 Medium](https://user-images.githubusercontent.com/72420125/196648773-04af8711-4c61-4a0b-bd3d-4e899eda6ad5.jpeg)
 ![Simulator Screen Shot - iPhone 13 mini - 2022-10-19 at 10 06 34 Medium](https://user-images.githubusercontent.com/72420125/196650048-1811dee6-c4bf-4fdb-a6da-fb2f4ba6f2fd.jpeg)
 
