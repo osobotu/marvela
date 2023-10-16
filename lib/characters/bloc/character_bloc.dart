@@ -48,6 +48,8 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
               ),
             );
     } catch (error, st) {
+      print(error);
+      print(st);
       emit(state.copyWith(status: CharacterStatus.failure));
     }
   }

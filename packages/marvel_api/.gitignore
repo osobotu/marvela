@@ -31,3 +31,4 @@ build/
 
 # environment variables
 .env
+config.json

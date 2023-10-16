@@ -27,7 +27,8 @@ class MarvelApiClient {
     final hash = HashGenerator().generateMD5Hash(ts);
     final queryParameters = {
       'limit': '40',
-      'apikey': Env.apiKey,
+      // 'apikey': Env.apiKey,
+      'apikey': const String.fromEnvironment('PUBLIC_KEY'),
       'hash': hash,
       'ts': ts,
       'offset': offset.toString(),
@@ -46,6 +47,8 @@ class MarvelApiClient {
     final charactersListResponse = await _httpClient.get(charactersListRequest);
 
     if (charactersListResponse.statusCode != 200) {
+      print(charactersListResponse.statusCode);
+      print(charactersListResponse.body);
       throw FetchCharactersRequestFailure();
     }
 
