@@ -1,20 +1,32 @@
+import 'package:Marvela/core/services/firebase_analytics_service.dart';
 import 'package:Marvela/favorites_characters/bloc/favorite_characters_bloc.dart';
 import 'package:favorites_repository/favorites_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_repository/marvel_repository.dart';
 
-class DetailsView extends StatelessWidget {
+class DetailsView extends StatefulWidget {
   const DetailsView({super.key, required this.character});
 
   final Character character;
+
+  @override
+  State<DetailsView> createState() => _DetailsViewState();
+}
+
+class _DetailsViewState extends State<DetailsView> {
+  @override
+  void didChangeDependencies() {
+    AnalyticsService.instance.setCurrentScreen(screenName: 'details_screen');
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(character.name),
+        title: Text(widget.character.name),
         centerTitle: true,
       ),
       body: Scrollbar(
@@ -24,13 +36,13 @@ class DetailsView extends StatelessWidget {
             children: [
               Container(
                 child: Image.network(
-                    '${character.thumbnail.path}.${character.thumbnail.extension}'),
+                    '${widget.character.thumbnail.path}.${widget.character.thumbnail.extension}'),
               ),
               SizedBox(height: 16),
               Text(
-                character.description.isEmpty
+                widget.character.description.isEmpty
                     ? 'No description provided'
-                    : character.description,
+                    : widget.character.description,
                 textAlign: TextAlign.justify,
                 style: theme.textTheme.headline5,
               ),
@@ -55,14 +67,14 @@ class DetailsView extends StatelessWidget {
                       FavoriteCharacterAdded(
                         FavoriteCharacter(
                           createdAt: DateTime.now().toString(),
-                          description: character.description,
-                          id: character.id,
-                          name: character.name,
-                          resourceURI: character.resourceURI,
+                          description: widget.character.description,
+                          id: widget.character.id,
+                          name: widget.character.name,
+                          resourceURI: widget.character.resourceURI,
                           isFavorite: true,
                           thumbnail: FavoriteThumbnail(
-                              path: character.thumbnail.path,
-                              extension: character.thumbnail.extension),
+                              path: widget.character.thumbnail.path,
+                              extension: widget.character.thumbnail.extension),
                         ),
                       ),
                     );

@@ -1,3 +1,4 @@
+import 'package:Marvela/core/services/firebase_analytics_service.dart';
 import 'package:Marvela/home/home.dart';
 import 'package:favorites_repository/favorites_repository.dart';
 
@@ -42,6 +43,9 @@ class MarvelaAppView extends StatelessWidget {
     return BlocBuilder<ThemeBloc, ThemeState>(
       builder: (context, state) {
         return MaterialApp(
+          navigatorObservers: [
+            AnalyticsService.observer,
+          ],
           debugShowCheckedModeBanner: false,
           themeMode: state.themeMode,
           theme: appThemeData[AppTheme.light],

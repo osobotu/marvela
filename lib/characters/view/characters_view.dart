@@ -1,6 +1,7 @@
 import 'package:Marvela/characters/characters.dart';
 import 'package:Marvela/characters/widgets/widgets.dart';
 import 'package:Marvela/core/core_widgets/core_widgets.dart';
+import 'package:Marvela/core/services/firebase_analytics_service.dart';
 import 'package:Marvela/favorites_characters/view/parallax.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,6 +29,12 @@ class _CharactersListState extends State<CharactersList> {
   void initState() {
     super.initState();
     _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void didChangeDependencies() {
+    AnalyticsService.instance.setCurrentScreen(screenName: 'characters_screen');
+    super.didChangeDependencies();
   }
 
   @override
@@ -84,6 +91,14 @@ class _CharactersListState extends State<CharactersList> {
                           : CharacterItem(
                               item: state.characters[index],
                               onCharacterTapped: () {
+                                AnalyticsService.instance.logEvent(
+                                  name: 'selected_character',
+                                  parameters: {
+                                    'character_name':
+                                        state.characters[index].name,
+                                    'character_id': state.characters[index].id,
+                                  },
+                                );
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(

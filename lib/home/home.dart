@@ -1,4 +1,5 @@
 import 'package:Marvela/characters/characters.dart';
+import 'package:Marvela/core/services/firebase_analytics_service.dart';
 import 'package:Marvela/favorites_characters/favorite_characters.dart';
 
 import 'package:Marvela/search/view/views.dart';
@@ -16,6 +17,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int currentIndex = 0;
+
+  @override
+  void didChangeDependencies() {
+    AnalyticsService.instance.setCurrentScreen(screenName: 'home_screen');
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +37,9 @@ class _HomeState extends State<Home> {
                 MaterialPageRoute(
                   builder: (context) => SearchPage(),
                 ),
+              );
+              AnalyticsService.instance.logEvent(
+                name: 'visit_search',
               );
             },
             icon: Icon(Icons.search),
