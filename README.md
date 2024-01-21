@@ -21,6 +21,9 @@ The project was implemented using bloc architecture.
 - Business Logic: manages the state of each feature (themes, character, favorite characters etc)
 - Presentation Layer: displays characters, favorite characters and collects input from the user (settings page, search page, favorites page etc)
 
+![marvela_architecture](https://github.com/osobotu/marvela/assets/72420125/1bb18f14-885d-4df6-8b3a-73492e8c3b94)
+
+
 ## Installation
 
 To run this project;
